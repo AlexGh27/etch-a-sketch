@@ -1,27 +1,24 @@
-const container = document.querySelector('#container');
+let gridSize = 3
+let buttonGrid = document.querySelector('buttonGrid');
 
-let rows = 16;
-let columns = 16;
+buttonGrid = addEventListener('click', () => {
+    fillGrid(gridSize);
+})
 
-function drawSquare(columns, rows) {
+// This builds the grid based on the input from the user
+function fillGrid(gridSize) {
+    let container = document.querySelector('#container');
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
-    let square = document.createElement('div');
-    square.classList = 'grid-square';
-    container.appendChild('square');
-    square.setAttribute('style', 'height: 100px; width: 100px; outline: thin solid')
-                
-    
-}
-
-function drawGrid(columns, rows) {
-    for (let i = 0; i < columns; i++) {
-        for (let i = 0; i < rows; i++) {
-            drawSquare(columns, rows);
-        }
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        let square = document.createElement('div');
+        square.style.backgroundColor = 'blue';
+        container.insertAdjacentElement('beforeend', square);
     }
 }
 
-drawGrid(columns, rows);
-
+//This function will change the hover color of the squares
+function changeColor() {
 
 }
