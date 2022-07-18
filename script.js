@@ -1,9 +1,4 @@
-let gridSize = 3
-let buttonGrid = document.querySelector('buttonGrid');
-
-buttonGrid = addEventListener('click', () => {
-    fillGrid(gridSize);
-})
+let buttonGrid = document.querySelector('#buttonGrid');
 
 // This builds the grid based on the input from the user
 function fillGrid(gridSize) {
@@ -16,9 +11,19 @@ function fillGrid(gridSize) {
         square.style.backgroundColor = 'blue';
         container.insertAdjacentElement('beforeend', square);
     }
+    
 }
 
-//This function will change the hover color of the squares
-function changeColor() {
+fillGrid(16);
 
+function changeGrid(input) {
+    fillGrid(input);
 }
+
+
+
+
+
+
+
+
