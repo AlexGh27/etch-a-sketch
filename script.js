@@ -4,10 +4,12 @@ let buttonGrid = document.querySelector('#buttonGrid');
 
 // This builds the grid based on the input from the user
 function fillGrid(gridSize) {
+    //Assigning a variable for each button
     let container = document.querySelector('#container');
     let black = document.querySelector('#black');
     let white = document.querySelector('#white');
     let random = document.querySelector('#random');
+    let reset = document.querySelector('#reset');
 
     container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
@@ -15,7 +17,7 @@ function fillGrid(gridSize) {
 
     for (let i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
-        square.style.backgroundColor = 'blue';
+        square.style.backgroundColor = 'rgb(200, 200, 200)';
         container.insertAdjacentElement('beforeend', square);
 
         black.addEventListener('click', function(e) {
@@ -30,7 +32,7 @@ function fillGrid(gridSize) {
             })
         });
         
-        let randomColorNumber = Math.floor(Math.random() * 1677215);
+        let randomColorNumber = Math.floor(Math.random() * 16777215);
         randomColorNumber.toString(16);
         let randomColor = '#' + randomColorNumber;
 
@@ -40,7 +42,10 @@ function fillGrid(gridSize) {
             })
         });
 
-        
+
+        reset.addEventListener('click', function(e) {
+            square.style.backgroundColor = 'rgb(200, 200, 200)';
+        });
         
         
     }
@@ -56,10 +61,10 @@ function changeGrid(input) {
         
     }
     else if (input <= 2) {
-        console.log('Not enough squares!');
+        alert('Not enough squares!');
     }
     else if (input > 100) {
-        console.log('Too many squares!');
+        alert('Too many squares!');
     }
     
     
